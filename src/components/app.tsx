@@ -1,8 +1,22 @@
+import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import * as React from 'react';
+
 function App() {
-    let age =  '25';
     return (
-        <div>{'Для того чтоб эта система заработала необходимо работать!'}</div>
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar>
+
+                    <TaskAltIcon />
+
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: '10px' }}>
+                        Task manager
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+        </Box>
     );
 }
 export default App;
