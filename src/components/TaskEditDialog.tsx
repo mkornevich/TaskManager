@@ -1,22 +1,22 @@
 import * as React from 'react';
 import {FC} from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from '@mui/material';
 import {ITask} from '../types';
 
 interface TaskEditDialogProps {
     tasks: ITask[];
     setTasks: (tasks: ITask[]) => void;
-    currentTask: null | ITask;
-    setCurrentTask: (task: null | ITask) => void;
+    task: null | ITask;
+    setTask: (task: null | ITask) => void;
 }
 
-const TaskEditDialog: FC<TaskEditDialogProps> = function ({tasks, setTasks, currentTask, setCurrentTask}) {
-    const open = currentTask !== null;
+const TaskEditDialog: FC<TaskEditDialogProps> = function ({tasks, setTasks, task, setTask}) {
+    const open = task !== null;
 
     let mode = 'none';
-    if (currentTask !== null) {
+    if (task !== null) {
         mode = tasks
-            .filter((task) => task.createdAt === currentTask.createdAt)
+            .filter((t) => t.createdAt === task.createdAt)
             .length > 0 ? 'edit' : 'create';
     }
 
@@ -24,25 +24,26 @@ const TaskEditDialog: FC<TaskEditDialogProps> = function ({tasks, setTasks, curr
         let newTasks = [...tasks];
 
         if (mode === 'edit') {
-            const oldTask = tasks.find(task => task.createdAt === currentTask.createdAt)
-            const oldTaskPos = tasks.indexOf(oldTask);
-            newTasks[oldTaskPos] = {
-                ...currentTask,
-                editedAt: Date.now(),
-            }
+            newTasks = [
+                ...tasks.filter(t => t.createdAt !== task.createdAt),
+                {
+                    ...task,
+                    editedAt: Date.now(),
+                }
+            ];
         }
 
         if (mode === 'create') {
-            newTasks.push(currentTask);
+            newTasks.push(task);
         }
 
         setTasks(newTasks);
-        handleClose()
+        handleClose();
     };
 
     const handleClose = function () {
-        setCurrentTask(null);
-    }
+        setTask(null);
+    };
 
     return (
         <Dialog open={open}>
@@ -51,8 +52,8 @@ const TaskEditDialog: FC<TaskEditDialogProps> = function ({tasks, setTasks, curr
             </DialogTitle>
             <DialogContent>
                 <TextField
-                    value={open ? currentTask.text : ''}
-                    onChange={(e) => open ? setCurrentTask({...currentTask, text: e.target.value}) : ''}
+                    value={open ? task.text : ''}
+                    onChange={(e) => open ? setTask({...task, text: e.target.value}) : ''}
                     autoFocus
                     margin="dense"
                     label="Задача"

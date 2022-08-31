@@ -2,7 +2,7 @@ import * as React from 'react';
 import {FC} from 'react';
 import TaskCard from './TaskCard';
 import {ITask} from '../types';
-import {Box, Menu, MenuItem} from '@mui/material';
+import {Box} from '@mui/material';
 import TaskCardMenu from './TaskCardMenu';
 
 interface TaskCardListProps {
@@ -20,10 +20,10 @@ const TaskCardList: FC<TaskCardListProps> = function ({tasks, onClickMenuItem}) 
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClickMenuItem = function(action: string, task: ITask) {
+    const handleClickMenuItem = function (action: string, task: ITask) {
         handleClose();
         onClickMenuItem(action, task);
-    }
+    };
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -31,7 +31,13 @@ const TaskCardList: FC<TaskCardListProps> = function ({tasks, onClickMenuItem}) 
 
     return (
         <Box>
-            {tasks.map((task) => <TaskCard open={open} onClickActionButton={handleClickActionButton} key={task.createdAt} task={task} />)}
+            {tasks.map((task) =>
+                <TaskCard
+                    open={open}
+                    onClickActionButton={handleClickActionButton}
+                    key={task.createdAt}
+                    task={task}
+                />)}
             <TaskCardMenu
                 onClickMenuItem={handleClickMenuItem}
                 currentTask={currentTask}
@@ -41,6 +47,6 @@ const TaskCardList: FC<TaskCardListProps> = function ({tasks, onClickMenuItem}) 
             />
         </Box>
     );
-}
+};
 
 export default TaskCardList;

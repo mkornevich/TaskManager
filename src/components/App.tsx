@@ -1,26 +1,9 @@
-import {
-    AppBar,
-    Box,
-    Button,
-    Card,
-    CardContent,
-    Checkbox,
-    Container,
-    IconButton,
-    Paper,
-    Toolbar,
-    Typography
-} from '@mui/material';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {Container} from '@mui/material';
 import * as React from 'react';
-import {Stack} from '@mui/system';
 import {ITask} from '../types';
-import TaskCard from './TaskCard';
 import Header from './Header';
 import TaskCardList from './TaskCardList';
 import TaskEditDialog from './TaskEditDialog';
-import {useEffect} from 'react';
 
 function App() {
     const [taskForEdit, setTaskForEdit] = React.useState<null | ITask>(null);
@@ -30,7 +13,7 @@ function App() {
     const setTasks = function (tasks: ITask[]) {
         setTasksToState(tasks);
         localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    };
 
     React.useEffect(() => {
         const tasksStr = localStorage.getItem('tasks');
@@ -44,7 +27,7 @@ function App() {
             const valA = a.editedAt == null ? a.createdAt : a.editedAt;
             const valB = b.editedAt == null ? b.createdAt : b.editedAt;
             return valB - valA;
-        })
+        });
     }, [tasks]);
 
     const handleClickMenuItem = function (action: string, currentTask: ITask) {
@@ -61,7 +44,7 @@ function App() {
         const newTask: ITask = {
             text: '',
             createdAt: Date.now(),
-        }
+        };
         setTaskForEdit(newTask);
     };
 
@@ -70,8 +53,8 @@ function App() {
             <Header onCreateClick={handleCreateClick}/>
             <TaskCardList onClickMenuItem={handleClickMenuItem} tasks={sortedTasks}/>
             <TaskEditDialog
-                currentTask={taskForEdit}
-                setCurrentTask={setTaskForEdit}
+                task={taskForEdit}
+                setTask={setTaskForEdit}
                 setTasks={setTasks}
                 tasks={tasks}
             />

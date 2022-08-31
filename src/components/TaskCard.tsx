@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Stack} from '@mui/system';
-import {IconButton, Menu, MenuItem, Paper, Typography} from '@mui/material';
+import {IconButton, Paper, Typography} from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {ITask} from '../types';
 import {FC} from 'react';

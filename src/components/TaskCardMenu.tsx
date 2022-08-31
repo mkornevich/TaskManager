@@ -23,6 +23,6 @@ const TaskCardMenu: FC<TaskCardMenuProps> = function ({open, anchorEl, onClose, 
             <MenuItem onClick={() => onClickMenuItem('remove', currentTask)}>Удалить</MenuItem>
         </Menu>
     );
-}
+};
 
 export default TaskCardMenu;
