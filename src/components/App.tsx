@@ -39,6 +39,14 @@ function App() {
         }
     }, []);
 
+    const sortedTasks = React.useMemo<ITask[]>(() => {
+        return [...tasks].sort((a, b) => {
+            const valA = a.editedAt == null ? a.createdAt : a.editedAt;
+            const valB = b.editedAt == null ? b.createdAt : b.editedAt;
+            return valB - valA;
+        })
+    }, [tasks]);
+
     const handleClickMenuItem = function (action: string, currentTask: ITask) {
         if (action === 'remove') {
             setTasks(tasks.filter((task) => task.createdAt !== currentTask.createdAt));
@@ -60,7 +68,7 @@ function App() {
     return (
         <Container maxWidth="sm" disableGutters={true}>
             <Header onCreateClick={handleCreateClick}/>
-            <TaskCardList onClickMenuItem={handleClickMenuItem} tasks={tasks}/>
+            <TaskCardList onClickMenuItem={handleClickMenuItem} tasks={sortedTasks}/>
             <TaskEditDialog
                 currentTask={taskForEdit}
                 setCurrentTask={setTaskForEdit}
