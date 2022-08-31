@@ -3,7 +3,11 @@ import {FC} from 'react';
 import {AppBar, Button, Toolbar, Typography} from '@mui/material';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
-const Header : FC = function () {
+interface HeaderProps {
+    onCreateClick: () => void;
+}
+
+const Header : FC<HeaderProps> = function ({onCreateClick}) {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -11,7 +15,7 @@ const Header : FC = function () {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: '10px' }}>
                     Task manager
                 </Typography>
-                <Button color="inherit">Добавить</Button>
+                <Button onClick={onCreateClick} color="inherit">Создать</Button>
             </Toolbar>
         </AppBar>
     );
