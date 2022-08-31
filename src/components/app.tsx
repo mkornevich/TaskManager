@@ -20,16 +20,24 @@ import TaskCard from './TaskCard';
 import Header from './Header';
 import TaskCardList from './TaskCardList';
 import TaskEditDialog from './TaskEditDialog';
+import {useEffect} from 'react';
 
 function App() {
-    const [tasks, setTasks] = React.useState<ITask[]>([
-        {text: 'Сходить на улицу и погулять с собаками.', createdAt: Date.now()},
-        {text: 'Заработать игровые очки.', createdAt: Date.now() + 1000000},
-        {text: 'Сделать сложную домашнюю работу.', createdAt: Date.now() + 25, editedAt: Date.now() + 1000000},
-        {text: 'Убрать рюкзак в шкаф.', createdAt: Date.now() + 3000000},
-    ]);
-
     const [taskForEdit, setTaskForEdit] = React.useState<null | ITask>(null);
+
+    const [tasks, setTasksToState] = React.useState<ITask[]>([]);
+
+    const setTasks = function (tasks: ITask[]) {
+        setTasksToState(tasks);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    React.useEffect(() => {
+        const tasksStr = localStorage.getItem('tasks');
+        if (tasksStr !== null) {
+            setTasksToState(JSON.parse(tasksStr));
+        }
+    }, []);
 
     const handleClickMenuItem = function (action: string, currentTask: ITask) {
         if (action === 'remove') {
