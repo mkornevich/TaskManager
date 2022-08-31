@@ -7,11 +7,11 @@ interface TaskCardMenuProps {
     open: boolean;
     anchorEl: null | HTMLElement;
     onClose: () => void;
-    currentTask: null | ITask;
-    onClickMenuItem: (action: string, task: ITask) => void;
+    targetTask: null | ITask;
+    onClickMenuItem: (action: string, targetTask: ITask) => void;
 }
 
-const TaskCardMenu: FC<TaskCardMenuProps> = function ({open, anchorEl, onClose, currentTask, onClickMenuItem}) {
+const TaskCardMenu: FC<TaskCardMenuProps> = function ({open, anchorEl, onClose, targetTask, onClickMenuItem}) {
     return (
         <Menu
             id="task-card-menu"
@@ -19,8 +19,8 @@ const TaskCardMenu: FC<TaskCardMenuProps> = function ({open, anchorEl, onClose, 
             open={open}
             onClose={onClose}
         >
-            <MenuItem onClick={() => onClickMenuItem('edit', currentTask)}>Редактировать</MenuItem>
-            <MenuItem onClick={() => onClickMenuItem('remove', currentTask)}>Удалить</MenuItem>
+            <MenuItem onClick={() => onClickMenuItem('edit', targetTask)}>Редактировать</MenuItem>
+            <MenuItem onClick={() => onClickMenuItem('remove', targetTask)}>Удалить</MenuItem>
         </Menu>
     );
 };

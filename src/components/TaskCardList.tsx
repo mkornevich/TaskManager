@@ -12,11 +12,11 @@ interface TaskCardListProps {
 
 const TaskCardList: FC<TaskCardListProps> = function ({tasks, onClickMenuItem}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const [currentTask, setCurrentTask] = React.useState<null | ITask>(null);
+    const [targetTask, setTargetTask] = React.useState<null | ITask>(null);
     const open = Boolean(anchorEl);
 
     const handleClickActionButton = (event: React.MouseEvent<HTMLButtonElement>, task: ITask) => {
-        setCurrentTask(task);
+        setTargetTask(task);
         setAnchorEl(event.currentTarget);
     };
 
@@ -37,10 +37,11 @@ const TaskCardList: FC<TaskCardListProps> = function ({tasks, onClickMenuItem}) 
                     onClickActionButton={handleClickActionButton}
                     key={task.createdAt}
                     task={task}
-                />)}
+                />
+            )}
             <TaskCardMenu
                 onClickMenuItem={handleClickMenuItem}
-                currentTask={currentTask}
+                targetTask={targetTask}
                 onClose={handleClose}
                 anchorEl={anchorEl}
                 open={open}

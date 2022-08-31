@@ -9,7 +9,7 @@ import {format} from 'date-fns';
 interface TaskCardProps {
     task: ITask;
     open: boolean;
-    onClickActionButton: (event: React.MouseEvent<HTMLButtonElement>, task: ITask) => void;
+    onClickActionButton: (event: React.MouseEvent<HTMLButtonElement>, targetTask: ITask) => void;
 }
 
 const TaskCard: FC<TaskCardProps> = function ({task, onClickActionButton, open}) {
@@ -20,9 +20,7 @@ const TaskCard: FC<TaskCardProps> = function ({task, onClickActionButton, open})
     return (
         <Paper sx={{m: '5px', p: '10px'}}>
             <Stack direction="row" alignItems="flex-start">
-                <Typography variant="h5" sx={{flexGrow: 1, mt: '3px'}}>
-                    {task.text}
-                </Typography>
+                <Typography variant="h5" sx={{flexGrow: 1, mt: '3px'}}>{task.text}</Typography>
                 <IconButton
                     aria-controls={open ? 'task-card-menu' : undefined}
                     aria-haspopup="true"

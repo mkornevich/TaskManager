@@ -4,8 +4,9 @@ import {ITask} from '../types';
 import Header from './Header';
 import TaskCardList from './TaskCardList';
 import TaskEditDialog from './TaskEditDialog';
+import {FC} from 'react';
 
-function App() {
+const App: FC = function() {
     const [taskForEdit, setTaskForEdit] = React.useState<null | ITask>(null);
 
     const [tasks, setTasksToState] = React.useState<ITask[]>([]);
