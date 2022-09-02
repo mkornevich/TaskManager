@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --open --mode development --hot",
     "build": "webpack --mode production",
     "lint": "npx eslint ./src/**",
-    "analyze-bundle": "webpack  --mode development --profile --json > reports/stats.json && webpack-bundle-analyzer reports/stats.json"
+    "bundle-report": "webpack  --mode development --profile --json > reports/stats.json && webpack-bundle-analyzer -O -m static -r ./reports/bundle-report.html reports/stats.json"
   },
   "author": "",
   "license": "ISC",
