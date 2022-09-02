@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --collect-coverage",
     "start": "webpack-dev-server --open --mode development --hot",
     "build": "webpack --mode production",
     "lint": "npx eslint ./src/**",
-    "analyze-bundle": "webpack  --mode development --profile --json > stats.json && webpack-bundle-analyzer stats.json"
+    "analyze-bundle": "webpack  --mode development --profile --json > reports/stats.json && webpack-bundle-analyzer reports/stats.json"
   },
   "author": "",
   "license": "ISC",

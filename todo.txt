@@ -20,9 +20,11 @@ https://medium.com/@abuduabiodunsulaiman/setup-react-app-with-webpack-ts-and-js-
 
 +подключить библиотеку для тестирования
 
+Предусмотреть возможность просмотра test coverage
+    +и bundle size (html вид)
+
 Норпализовать сборочную конфигурацию
-Предусмотреть возможность просмотра test coverage (html вид)
-    +и bundle size
+
 
 
 Написать unit тесты для реализованных в задаче компонентов
