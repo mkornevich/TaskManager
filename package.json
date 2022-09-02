@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "webpack-dev-server --open --mode development --hot",
     "build": "webpack --mode production",
-    "lint": "npx eslint ./src/**"
+    "lint": "npx eslint ./src/**",
+    "analyze-bundle": "webpack  --mode development --profile --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "ts-jest": "^28.0.8",
     "ts-loader": "^9.3.1",
     "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
   },

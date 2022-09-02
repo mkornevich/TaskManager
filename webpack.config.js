@@ -8,7 +8,6 @@ module.exports = {
         path: path.join(__dirname, '/dist'),
         filename: '[name].bundle.js'
     },
-    devtool: 'inline-source-map',
     devServer: {
         static: './dist',
     },
