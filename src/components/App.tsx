@@ -7,7 +7,7 @@ import TaskEditDialog from './TaskEditDialog';
 import {FC} from 'react';
 import useStoredSortedTasks from '../hooks/useStoredSortedTasks';
 
-const App: FC = function() {
+const App: FC = function () {
     const [taskForEdit, setTaskForEdit] = React.useState<null | ITask>(null);
 
     const [tasks, sortedTasks, setTasks] = useStoredSortedTasks();
@@ -42,6 +42,6 @@ const App: FC = function() {
             />
         </Container>
     );
-}
+};
 
 export default App;

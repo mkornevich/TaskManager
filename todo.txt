@@ -6,7 +6,7 @@ https://medium.com/@abuduabiodunsulaiman/setup-react-app-with-webpack-ts-and-js-
 Основное внимание нужно уделить настройке окружения и структуре проекта.
 
 +Подключить +TS, +Material-UI, +React, +Webpack, +eslint (package.json)
-!+Настроить Webpack для dev окружения и для генерации production build
++Настроить Webpack для dev окружения и для генерации production build
 
 +Вывод списка задач
 +Добавление новой задачи
@@ -20,9 +20,10 @@ https://medium.com/@abuduabiodunsulaiman/setup-react-app-with-webpack-ts-and-js-
 
 +подключить библиотеку для тестирования
 
-Предусмотреть возможность просмотра test coverage
++Предусмотреть возможность просмотра test coverage
     +и bundle size (html вид)
 
++ Нормализовать ES Lint
 Норпализовать сборочную конфигурацию
 
 

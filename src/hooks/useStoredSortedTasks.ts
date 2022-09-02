@@ -25,6 +25,6 @@ const useStoredSortedTasks = function (): [ITask[], ITask[], (tasks: ITask[]) =>
     }, [tasks]);
 
     return [tasks, sortedTasks, setTasksToStorageAndState];
-}
+};
 
 export default useStoredSortedTasks;

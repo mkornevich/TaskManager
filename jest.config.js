@@ -1,6 +1,6 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  coverageDirectory: './reports/test-coverage',
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+    coverageDirectory: './reports/test-coverage',
 };
