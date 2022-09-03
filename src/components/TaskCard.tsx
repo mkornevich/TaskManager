@@ -22,6 +22,7 @@ const TaskCard: FC<TaskCardProps> = function ({task, onClickActionButton, open})
             <Stack direction="row" alignItems="flex-start">
                 <Typography variant="h5" sx={{flexGrow: 1, mt: '3px'}}>{task.text}</Typography>
                 <IconButton
+                    data-testid="action-button"
                     aria-controls={open ? 'task-card-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}

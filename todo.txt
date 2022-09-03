@@ -24,7 +24,7 @@ https://medium.com/@abuduabiodunsulaiman/setup-react-app-with-webpack-ts-and-js-
     +и bundle size (html вид)
 
 + Нормализовать ES Lint
-Норпализовать сборочную конфигурацию
++ Норпализовать сборочную конфигурацию
 
 
 
