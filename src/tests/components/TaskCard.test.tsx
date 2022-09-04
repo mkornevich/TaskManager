@@ -1,7 +1,7 @@
 import {fireEvent, render, screen} from '@testing-library/react';
-import {ITask} from '../types';
+import {ITask} from '../../types';
 import * as React from 'react';
-import TaskCard from './TaskCard';
+import TaskCard from '../../components/TaskCard';
 
 describe('TaskCard', () => {
     const CREATED_AT = (new Date(2022, 8, 3, 12, 0, 0, 0)).getTime();
