@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = function ({onCreateClick}) {
                 <Typography variant="h6" component="div" sx={{flexGrow: 1, ml: '10px'}}>
                     Task manager
                 </Typography>
-                <Button onClick={onCreateClick} color="inherit">Создать</Button>
+                <Button onClick={onCreateClick} color="inherit" data-testid='header-create-btn'>Создать</Button>
             </Toolbar>
         </AppBar>
     );

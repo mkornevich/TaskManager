@@ -64,7 +64,7 @@ const TaskEditDialog: FC<TaskEditDialogProps> = function ({tasks, setTasks, task
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Отмена</Button>
-                <Button onClick={handleClickCreateOrEdit}>
+                <Button onClick={handleClickCreateOrEdit} data-testid='dialog-positive-btn'>
                     {mode === 'edit' ? 'Сохранить' : 'Создать'}
                 </Button>
             </DialogActions>
