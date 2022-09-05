@@ -28,4 +28,4 @@ https://medium.com/@abuduabiodunsulaiman/setup-react-app-with-webpack-ts-and-js-
 
 
 
-Написать unit тесты для реализованных в задаче компонентов
++ Написать unit тесты для реализованных в задаче компонентов

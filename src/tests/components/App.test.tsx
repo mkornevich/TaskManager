@@ -12,7 +12,7 @@ describe('App', () => {
         {text: 'task5', createdAt: 6, editedAt: 30},
     ];
 
-    let localStore: { [key: string]: any } = {};
+    let localStore: { [key: string]: string } = {};
 
     test('create task', () => {
         const CREATED_AT = 9;
